@@ -28,8 +28,7 @@ router.get('/db', async function (req, res, next) {
     conn = await pool.getConnection()
     results = await conn.query("INSERT INTO myTable value (?, ?)", [1, `mariadb-${num}`])
     rows = await conn.query("SELECT * from myTable")
-    // console.log(rows) //[ {val: 1}, meta: ... ]
-    // console.log(res) // { affectedRows: 1, insertId: 1, warningStatus: 0 }
+    console.log(rows)
   } catch (err) {
     throw err
   } finally {
