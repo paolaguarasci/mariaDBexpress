@@ -2,7 +2,7 @@ const mariadb = require('mariadb')
 var express = require('express')
 var router = express.Router()
 
-const pool = mariadb.createPool({
+const pool = mariadb.createConnection({
   host: 'database',
   user: 'paola',
   password: 'root',
