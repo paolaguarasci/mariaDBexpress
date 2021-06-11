@@ -3,7 +3,7 @@ var express = require('express')
 var router = express.Router()
 
 const pool = mariadb.createPool({
-  host: 'database',
+  host: 'mysql://database:3306/bg?autoReconnect=true&autoReconnectForPools=true',
   user: 'paola',
   password: 'root',
   connectionLimit: 5
