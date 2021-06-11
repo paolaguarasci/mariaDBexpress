@@ -4,7 +4,6 @@ var router = express.Router()
 
 const pool = mariadb.createPool({
   host: 'my-mariadb-galera.paola-galera-3.svc.cluster.local',
-  // host: 'database',
   user: 'paola',
   password: 'root',
   database: 'bg',
@@ -30,14 +29,13 @@ router.get('/db', async function (req, res, next) {
     console.log(rows) //[ {val: 1}, meta: ... ]
     results = await conn.query("INSERT INTO myTable value (?, ?)", [1, "mariadb"])
     console.log(res) // { affectedRows: 1, insertId: 1, warningStatus: 0 }
-
   } catch (err) {
     throw err
   } finally {
     if (conn) return conn.end()
   }
 
-  res.render('index', { title: 'DB Connect', data: results })
+  res.render('index', { title: 'DB Connect', data: rows })
 })
 
 
