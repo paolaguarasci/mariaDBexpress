@@ -24,11 +24,12 @@ router.get('/db', async function (req, res, next) {
   let rows
   let results
   try {
+    let num = Math.floor((Math.random() * 1000) + 1)
     conn = await pool.getConnection()
-    rows = await conn.query("SELECT 1 as val")
-    console.log(rows) //[ {val: 1}, meta: ... ]
-    results = await conn.query("INSERT INTO myTable value (?, ?)", [1, "mariadb"])
-    console.log(res) // { affectedRows: 1, insertId: 1, warningStatus: 0 }
+    results = await conn.query("INSERT INTO myTable value (?, ?)", [1, `mariadb-${num}`])
+    rows = await conn.query("SELECT * from myTable")
+    // console.log(rows) //[ {val: 1}, meta: ... ]
+    // console.log(res) // { affectedRows: 1, insertId: 1, warningStatus: 0 }
   } catch (err) {
     throw err
   } finally {
