@@ -18,7 +18,7 @@ router.get('/', function (req, res, next) {
 
 
 
-router.get('/db', async function (req, res, next) {
+router.get('/database', async function (req, res, next) {
 
   let conn
   let rows
