@@ -3,16 +3,16 @@ var express = require('express')
 var router = express.Router()
 
 const pool = mariadb.createPool({
-  host: 'database',
+  host: 'my-mariadb-galera.paola-galera-3.svc.cluster.local',
   user: 'paola',
   password: 'root',
-  database: 'bg', 
+  database: 'bg',
   port: '3306'
 })
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Express' })
+  res.render('index', { title: 'Express', data: '' })
 })
 
 
