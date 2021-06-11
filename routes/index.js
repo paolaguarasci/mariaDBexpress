@@ -3,7 +3,7 @@ var express = require('express')
 var router = express.Router()
 
 const pool = mariadb.createPool({
-  host: 'database.paola-galera-3.svc.cluster.local',
+  host: 'my-mariadb-galera.paola-galera-3.svc.cluster.local',
   user: 'paola',
   password: 'root',
   database: 'bg',
